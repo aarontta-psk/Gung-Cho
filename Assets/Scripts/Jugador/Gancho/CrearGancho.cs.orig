@@ -28,8 +28,12 @@ public class CrearGancho : MonoBehaviour
         lineaGancho.positionCount = 2;
         lineaGancho.enabled = false; //lo desactivamos
         cargasGancho = cargasMaxima; //establecemos las cargas actuales
-		estadisticas = GetComponent<Jugador>().estadisticas;
-		suelo = transform.GetChild(0).GetComponent<Suelo>(); //Los pies deben ser el primer hijo del jugador
+<<<<<<< HEAD
+        suelo = transform.GetChild(0).GetComponent<Suelo>(); //Los pies deben ser el primer hijo del jugador
+
+=======
+        estadisticas = GetComponent<Jugador>().estadisticas;
+>>>>>>> refs/remotes/origin/master
     }
 
     void Update()
@@ -66,7 +70,6 @@ public class CrearGancho : MonoBehaviour
                 if (Input.GetButtonUp("Gancho")) //si se ha activado el gancho por ratón
                     angulo = Metodos.AnguloPosicionRaton(posicion); //hallamos el angulo entre jugador y raton
 
-				//Si se está apuntando al suelo desde el suelo no se crea un gancho
                 if ((angulo > 240 || angulo < -60) && suelo.EnSuelo())
                 {
                     estadoJugador.CambioEstado(estado.Defecto);
