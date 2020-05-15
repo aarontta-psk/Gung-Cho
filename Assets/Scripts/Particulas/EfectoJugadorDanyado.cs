@@ -50,6 +50,6 @@ public class EfectoJugadorDanyado : MonoBehaviour
     private void OnDisable()
     {
         if (spriteRenderer != null) spriteRenderer.color = ColorIni;
-        if(particulas != null) Destroy(particulas.gameObject);
+
     }
 }
