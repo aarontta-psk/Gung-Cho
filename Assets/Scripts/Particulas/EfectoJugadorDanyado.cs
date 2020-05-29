@@ -34,8 +34,11 @@ public class EfectoJugadorDanyado : MonoBehaviour
         if (GameManager.instance.getVidas() <= 0)
         {
             particulas = Instantiate(PrefabParticulasMuerteJugador, transform.position, Quaternion.Euler(0f, 0f, 0f));
+            ParticleSystem.MainModule main = particulas.GetComponent<ParticleSystem>().main;
             ParticleSystem particleSystem = particulas.GetComponent<ParticleSystem>();
             particleSystem.Play();
+            //destruimos su GO con respecto al "lifetime" establecido en las particulas
+            Destroy(particulas, main.startLifetime.constant);
             enabled = false; //y se desactiva el script
         }
     }
@@ -50,6 +53,5 @@ public class EfectoJugadorDanyado : MonoBehaviour
     private void OnDisable()
     {
         if (spriteRenderer != null) spriteRenderer.color = ColorIni;
-
     }
 }
